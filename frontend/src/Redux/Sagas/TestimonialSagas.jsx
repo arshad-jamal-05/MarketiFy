@@ -1,0 +1,57 @@
+import { put, takeEvery } from "redux-saga/effects";
+import {
+  CREATE_TESTIMONIAL,
+  CREATE_TESTIMONIAL_RED,
+  GET_TESTIMONIAL,
+  GET_TESTIMONIAL_RED,
+  UPDATE_TESTIMONIAL,
+  UPDATE_TESTIMONIAL_RED,
+  DELETE_TESTIMONIAL,
+  DELETE_TESTIMONIAL_RED,
+} from "../Constant";
+import {
+  createRecord,
+  createMultipartRecord,
+  getRecord,
+  updateMultipartRecord,
+  updateRecord,
+  deleteRecord,
+} from "./Services/index";
+
+function* createSaga(action) {
+  // worker saga
+  let response = yield createRecord("testimonial", action.payload); // if data has no file field
+  // let response = yield createMultipartRecord("testimonial", action.payload); // if data has at least 1 file field
+  yield put({ type: CREATE_TESTIMONIAL_RED, payload: response });
+}
+
+function* getSaga(action) {
+  // worker saga
+  let response = yield getRecord("testimonial", action.payload);
+  yield put({ type: GET_TESTIMONIAL_RED, payload: response });
+}
+
+function* updateSaga(action) {
+  // worker saga
+  yield updateRecord("testimonial", action.payload); // if data has no file field
+  // yield updateMultipartRecord("testimonial", action.payload);  // if data has at least 1 file field
+  yield put({ type: UPDATE_TESTIMONIAL_RED, payload: action.payload });
+
+  // in case of real backend
+  // let response = yield updateRecord("testimonial", action.payload); // if data has no file field
+  // let response = yield updateMultipartRecord("testimonial", action.payload);  // if data has at least 1 file field
+  // yield put({ type: UPDATE_TESTIMONIAL_RED, payload: response });
+}
+
+function* deleteSaga(action) {
+  // worker saga
+  let response = yield deleteRecord("testimonial", action.payload);
+  yield put({ type: DELETE_TESTIMONIAL_RED, payload: action.payload });
+}
+
+export default function* TestimonialSagas() {
+  yield takeEvery(CREATE_TESTIMONIAL, createSaga); // watcher saga
+  yield takeEvery(GET_TESTIMONIAL, getSaga); // watcher saga
+  yield takeEvery(UPDATE_TESTIMONIAL, updateSaga); // watcher saga
+  yield takeEvery(DELETE_TESTIMONIAL, deleteSaga); // watcher saga
+}
