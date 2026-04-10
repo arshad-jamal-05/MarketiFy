@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Cart from "../../Components/User/Cart";
-import { useNavigate } from "react-router-dom";
 
 export default function CheckoutPage() {
   let [selected, setSelected] = useState({
@@ -8,8 +7,6 @@ export default function CheckoutPage() {
     paymentMode: "COD",
   });
   let [address, setAddress] = useState([]);
-
-  let navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -32,6 +29,7 @@ export default function CheckoutPage() {
         setAddress(response.data.address);
         setSelected({ ...selected, deliveryAddress: response.data?.address[0] });
       }
+      // console.log(response);
     })();
   }, []);
 
@@ -44,6 +42,7 @@ export default function CheckoutPage() {
               <h5 className="bg-primary text-center text-light p-2">
                 Delievery Address
               </h5>
+              {/* {console.log(address)} */}
               {address?.map((item, index) => {
                 return (
                   <div

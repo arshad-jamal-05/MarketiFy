@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 export default function SingleProduct({ item }) {
   let BrandStateData = useSelector((state) => state.BrandStateData);
   let brand = BrandStateData.find((x) => x.name === item.brand.name);
-  console.log(item);
 
   return (
     <div className="bg-light rounded overflow-hidden">

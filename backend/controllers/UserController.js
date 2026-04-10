@@ -38,7 +38,7 @@ async function createRecord(req, res) {
         } else {
           try {
             let data = new User(req.body);
-            if(!(req.body.option)){
+            if (!req.body.option) {
               data.role = "Buyer";
             }
             // data.role = "Buyer";
@@ -55,7 +55,7 @@ async function createRecord(req, res) {
                 subject: `Welcome to ${process.env.SITE_NAME} : SignUp Successful`,
                 html: `
                       <tr>
-                      <td style="background:#0a1f44; color:#ffffff; text-align:center; padding:22px; font-size:26px; font-weight:bold;">
+                      <td style="background:#13c5dd; color:#ffffff; text-align:center; padding:22px; font-size:26px; font-weight:bold;">
                       ${process.env.SITE_NAME}
                       </td>
                       </tr>
@@ -63,7 +63,7 @@ async function createRecord(req, res) {
                       <tr>
                       <td style="padding:40px 30px; color:#333333;">
 
-                      <h2 style="color:#0a1f44; margin-top:0;">Welcome to ${process.env.SITE_NAME} 🎉</h2>
+                      <h2 style="color:#13c5dd; margin-top:0;">Welcome to ${process.env.SITE_NAME} 🎉</h2>
 
                       <p style="font-size:16px; line-height:24px;">
                       Hi <b>${data.name}</b>, <br><br>
@@ -80,7 +80,7 @@ async function createRecord(req, res) {
 
                       <table align="center" cellpadding="0" cellspacing="0" border="0" style="margin:30px auto;">
                       <tr>
-                      <td style="background:#0a1f44; padding:14px 32px; border-radius:5px;">
+                      <td style="background:#13c5dd; padding:14px 32px; border-radius:5px;">
                       <a href="${process.env.SITE_URL}" style="color:#ffffff; text-decoration:none; font-size:16px; font-weight:bold;">
                       Start Shopping
                       </a>
@@ -334,7 +334,7 @@ async function forgetPassword1(req, res) {
           html: `
           
           <tr>
-            <td style="background-color:#0a1f44; padding:20px; text-align:center; color:#ffffff; font-size:24px; font-weight:bold;">
+            <td style="background-color:#13c5dd; padding:20px; text-align:center; color:#ffffff; font-size:24px; font-weight:bold;">
               ${process.env.SITE_NAME}
             </td>
           </tr>
@@ -343,7 +343,7 @@ async function forgetPassword1(req, res) {
           <tr>
             <td style="padding:40px 30px; color:#333333;">
 
-              <h2 style="margin-top:0; color:#0a1f44;">Password Reset Request</h2>
+              <h2 style="margin-top:0; color:#13c5dd;">Password Reset Request</h2>
 
               <p style="font-size:16px; line-height:24px;">
                 We received a request to reset your password. Use the One Time Password (OTP) below to proceed.
@@ -353,7 +353,7 @@ async function forgetPassword1(req, res) {
               <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:30px 0;">
                 <tr>
                   <td align="center">
-                    <div style="display:inline-block; background-color:#f1f5ff; color:#0a1f44; font-size:32px; letter-spacing:8px; font-weight:bold; padding:15px 25px; border-radius:6px;">
+                    <div style="display:inline-block; background-color:#f1f5ff; color:#13c5dd; font-size:32px; letter-spacing:8px; font-weight:bold; padding:15px 25px; border-radius:6px;">
                       ${otp}
                     </div>
                   </td>
@@ -371,7 +371,7 @@ async function forgetPassword1(req, res) {
              
               <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin:30px auto 10px;">
                 <tr>
-                  <td align="center" style="background-color:#0a1f44; padding:14px 30px; border-radius:5px;">
+                  <td align="center" style="background-color:#13c5dd; padding:14px 30px; border-radius:5px;">
                     <a href="#" style="color:#ffffff; text-decoration:none; font-size:16px; font-weight:bold;">
                       Reset Password
                     </a>

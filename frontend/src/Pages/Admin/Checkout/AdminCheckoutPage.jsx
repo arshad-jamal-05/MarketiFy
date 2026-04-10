@@ -54,7 +54,7 @@ export default function AdminCheckoutPage() {
               </thead>
               <tbody>
                 {data.map((item) => {
-                  console.log(item);
+                  // console.log(item);
                   return (
                     <tr key={item._id}>
                       <td>{item._id}</td>

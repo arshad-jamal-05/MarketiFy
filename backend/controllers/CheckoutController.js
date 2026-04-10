@@ -33,7 +33,7 @@ async function createRecord(req, res) {
         subject: `Your Order Has Been Successfully Placed : Team ${process.env.SITE_NAME}`,
         html: `
                 <tr>
-                <td style="background:#0a1f44; color:#ffffff; text-align:center; padding:22px; font-size:26px; font-weight:bold;">
+                <td style="background:#13c5dd; color:#ffffff; text-align:center; padding:22px; font-size:26px; font-weight:bold;">
                 Marketify
                 </td>
                 </tr>
@@ -41,7 +41,7 @@ async function createRecord(req, res) {
                 <tr>
                 <td style="padding:40px 30px; color:#333333;">
 
-                <h2 style="color:#0a1f44; margin-top:0;">🎉 Order Confirmed!</h2>
+                <h2 style="color:#13c5dd; margin-top:0;">🎉 Order Confirmed!</h2>
 
                 <p style="font-size:16px; line-height:24px;">
                 Hi <b>${finalData.user.name}</b>, <br><br>
@@ -58,7 +58,7 @@ async function createRecord(req, res) {
 
                 <table width="100%" cellpadding="8" cellspacing="0" border="0" style="border-collapse:collapse; font-size:14px;">
 
-                <tr style="background:#0a1f44; color:#ffffff;">
+                <tr style="background:#13c5dd; color:#ffffff;">
                 <th align="left">Product</th>
                 <th align="center">Qty</th>
                 <th align="right">Price</th>
@@ -71,13 +71,13 @@ async function createRecord(req, res) {
                 </p>
 
                 <div style="margin-top:25px; font-size:15px;">
-                <strong style="color:#0a1f44;">Shipping Address:</strong><br>
+                <strong style="color:#13c5dd;">Shipping Address:</strong><br>
                 ${data.deliveryAddress}
                 </div>
 
                 <table align="center" cellpadding="0" cellspacing="0" border="0" style="margin:35px auto 10px;">
                 <tr>
-                <td style="background:#0a1f44; padding:14px 32px; border-radius:5px;">
+                <td style="background:#13c5dd; padding:14px 32px; border-radius:5px;">
                 <a href="${process.env.SITE_URL}/profile?option=Order" style="color:#ffffff; text-decoration:none; font-size:16px; font-weight:bold;">
                 Track Your Order
                 </a>
@@ -154,7 +154,7 @@ async function getRecord(req, res) {
 
 async function getUserRecord(req, res) {
   try {
-    let data = await Checkout.find({user:req.params.userid})
+    let data = await Checkout.find({ user: req.params.userid })
       .populate("user", ["name", "username"])
       .populate({
         path: "products.product",
@@ -259,7 +259,7 @@ async function updateRecord(req, res) {
           subject: `Your Order Status Has Been Updated : Team ${process.env.SITE_NAME}`,
           html: `
                 <tr>
-                <td style="background:#0a1f44; color:#ffffff; text-align:center; padding:22px; font-size:26px; font-weight:bold;">
+                <td style="background:#13c5dd; color:#ffffff; text-align:center; padding:22px; font-size:26px; font-weight:bold;">
                 ${process.env.SITE_NAME}
                 </td>
                 </tr>
@@ -267,7 +267,7 @@ async function updateRecord(req, res) {
                 <tr>
                 <td style="padding:40px 30px; color:#333333;">
 
-                <h2 style="color:#0a1f44; margin-top:0;">📦 Order Status Updated</h2>
+                <h2 style="color:#13c5dd; margin-top:0;">📦 Order Status Updated</h2>
 
                 <p style="font-size:16px; line-height:24px;">
                 Hi <b>${finalData.user.name}</b>, <br><br>
@@ -279,7 +279,7 @@ async function updateRecord(req, res) {
                 <p style="margin:0; font-size:14px;">Order ID</p>
                 <p style="margin:5px 0 15px 0; font-size:18px; font-weight:bold;">${data._id}</p>
 
-                <span style="display:inline-block; background:#0a1f44; color:#ffffff; padding:10px 22px; border-radius:20px; font-size:14px; font-weight:bold;">
+                <span style="display:inline-block; background:#13c5dd; color:#ffffff; padding:10px 22px; border-radius:20px; font-size:14px; font-weight:bold;">
                 ${data.orderStatus}
                 </span>
 
@@ -291,7 +291,7 @@ async function updateRecord(req, res) {
 
                 <table align="center" cellpadding="0" cellspacing="0" border="0" style="margin:30px auto;">
                 <tr>
-                <td style="background:#0a1f44; padding:14px 32px; border-radius:5px;">
+                <td style="background:#13c5dd; padding:14px 32px; border-radius:5px;">
                 <a href="${process.env.SITE_URL}/profile?option=Order" style="color:#ffffff; text-decoration:none; font-size:16px; font-weight:bold;">
                 Track Your Order
                 </a>

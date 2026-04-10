@@ -164,11 +164,10 @@ export default function AdminCheckoutShowPage() {
                 </tr>
               </thead>
               <tbody>
-                {console.log(data.products)}
                 {data.products?.map((p, index) => {
                   return (
                     <tr key={index}>
-                      {console.log(p.product)}
+                      {/* {console.log(p.product)} */}
                       <td>
                         <Link
                           to={`${import.meta.env.VITE_APP_IMAGE_SERVER}${p.product?.pic}`}
@@ -184,8 +183,6 @@ export default function AdminCheckoutShowPage() {
                         </Link>
                       </td>
                       <td>
-                        {/* {p.name} */}
-
                         <Link
                           className="h6"
                           to={`/product/${p.product?._id}`}

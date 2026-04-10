@@ -16,7 +16,7 @@ async function createRecord(req, res) {
         subject: `New ContactUs Query Recieved : Team ${process.env.SITE_NAME}`,
         html: `
                       <tr>
-                      <td style="background:#0a1f44; color:#ffffff; padding:20px; font-size:24px; font-weight:bold; text-align:center;">
+                      <td style="background:#13c5dd; color:#ffffff; padding:20px; font-size:24px; font-weight:bold; text-align:center;">
                       ${process.env.SITE_NAME} – Contact Query
                       </td>
                       </tr>
@@ -24,7 +24,7 @@ async function createRecord(req, res) {
                       <tr>
                       <td style="padding:35px 30px; color:#333333;">
                             
-                      <h2 style="color:#0a1f44; margin-top:0;">New Message Received 📩</h2>
+                      <h2 style="color:#13c5dd; margin-top:0;">New Message Received 📩</h2>
                             
                       <p style="font-size:16px;">
                       You have received a new contact form submission. Here are the details:
@@ -61,7 +61,7 @@ async function createRecord(req, res) {
                             
                       <table align="center" cellpadding="0" cellspacing="0" border="0" style="margin:30px auto 10px;">
                       <tr>
-                      <td style="background:#0a1f44; padding:12px 28px; border-radius:5px;">
+                      <td style="background:#13c5dd; padding:12px 28px; border-radius:5px;">
                       <a href="mailto:${data.email}" style="color:#ffffff; text-decoration:none; font-size:15px; font-weight:bold;">
                       Reply to Customer
                       </a>
@@ -92,7 +92,7 @@ async function createRecord(req, res) {
         subject: `We Have Received Your Query : Team ${process.env.SITE_NAME}`,
         html: `
                       <tr>
-                      <td style="background:#0a1f44; color:#ffffff; text-align:center; padding:22px; font-size:24px; font-weight:bold;">
+                      <td style="background:#13c5dd; color:#ffffff; text-align:center; padding:22px; font-size:24px; font-weight:bold;">
                       ${process.env.SITE_NAME}
                       </td>
                       </tr>
@@ -100,7 +100,7 @@ async function createRecord(req, res) {
                       <tr>
                       <td style="padding:40px 30px; color:#333333;">
 
-                      <h2 style="color:#0a1f44; margin-top:0;">We’ve Received Your Message ✅</h2>
+                      <h2 style="color:#13c5dd; margin-top:0;">We’ve Received Your Message ✅</h2>
 
                       <p style="font-size:16px; line-height:24px;">
                       Hi <b>${data.name}</b>,
@@ -119,7 +119,7 @@ async function createRecord(req, res) {
 
                       <table align="center" cellpadding="0" cellspacing="0" border="0" style="margin:30px auto;">
                       <tr>
-                      <td style="background:#0a1f44; padding:14px 30px; border-radius:5px;">
+                      <td style="background:#13c5dd; padding:14px 30px; border-radius:5px;">
                       <a href="${process.env.SITE_URL}" style="color:#ffffff; text-decoration:none; font-size:16px; font-weight:bold;">
                       Continue Shopping
                       </a>
@@ -222,7 +222,7 @@ async function updateRecord(req, res) {
           subject: `Your Query Has Been Resolved : Team ${process.env.SITE_NAME}`,
           html: `
                     <tr>
-                    <td style="background:#0a1f44; color:#ffffff; text-align:center; padding:22px; font-size:24px; font-weight:bold;">
+                    <td style="background:#13c5dd; color:#ffffff; text-align:center; padding:22px; font-size:24px; font-weight:bold;">
                     Marketify Support
                     </td>
                     </tr>
@@ -230,7 +230,7 @@ async function updateRecord(req, res) {
                     <tr>
                     <td style="padding:40px 30px; color:#333333;">
 
-                    <h2 style="color:#0a1f44; margin-top:0;">Your Issue Has Been Resolved ✅</h2>
+                    <h2 style="color:#13c5dd; margin-top:0;">Your Issue Has Been Resolved ✅</h2>
 
                     <p style="font-size:16px; line-height:24px;">
                     Hi <b>${data.name}</b>,
@@ -244,7 +244,7 @@ async function updateRecord(req, res) {
 
                     <table align="center" cellpadding="0" cellspacing="0" border="0" style="margin:30px auto;">
                     <tr>
-                    <td style="background:#0a1f44; padding:14px 30px; border-radius:5px;">
+                    <td style="background:#13c5dd; padding:14px 30px; border-radius:5px;">
                     <a href="${process.env.SITE_URL}" style="color:#ffffff; text-decoration:none; font-size:16px; font-weight:bold;">
                     Contact Support
                     </a>

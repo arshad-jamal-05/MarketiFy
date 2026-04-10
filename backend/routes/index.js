@@ -13,6 +13,7 @@ const WishlistRouter = require("./WishlistRoutes");
 const CheckoutRouter = require("./CheckoutRoutes");
 const NewsletterRouter = require("./NewsletterRoutes");
 const ContactUsRouter = require("./ContactUsRoutes");
+const TestimonialRouter = require("./TestimonialRoutes");
 
 Router.use("/maincategory", MaincategoryRouter);
 Router.use("/subcategory", SubcategoryRouter);
@@ -28,5 +29,6 @@ Router.use("/wishlist", WishlistRouter);
 Router.use("/checkout", CheckoutRouter);
 Router.use("/newsletter", NewsletterRouter);
 Router.use("/contactus", ContactUsRouter);
+Router.use("/testimonial", TestimonialRouter);
 
 module.exports = Router;

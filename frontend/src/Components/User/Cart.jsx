@@ -72,7 +72,7 @@ export default function Cart({ title, selected }) {
       product.stockQuantity = product.stockQuantity - x.qty;
       product.stock = product.stockQuantity === 0 ? false : true;
       dispatch(updateProduct({ ...product, option: "Checkout" }));
-      console.log(product);
+      // console.log(product);
 
       dispatch(deleteCart({ _id: x._id }));
     });

@@ -41,7 +41,7 @@ export default function Order() {
   function setUpdateOptions(pid) {
     setShowModal(true);
     setOption("Update");
-    let item = reviews.find((x) => x.product === pid);
+    let item = reviews.find((x) => x.product?._id === pid);
     setData({
       ...data,
       ...item,
@@ -82,12 +82,12 @@ export default function Order() {
         //   (x) => x.user === localStorage.getItem("userid"),
         // );
         // setOrders(userOrders);
-        setOrders(CheckoutStateData);
-        // setOrders(
-        //   CheckoutStateData.filter(
-        //     (x) => x.user === localStorage.getItem("userid"),
-        //   ),
-        // );
+        // setOrders(CheckoutStateData);
+        setOrders(
+          CheckoutStateData.filter(
+            (x) => x.user?._id === localStorage.getItem("userid"),
+          ),
+        );
       }
     })();
   }, [CheckoutStateData.length]);
@@ -98,7 +98,7 @@ export default function Order() {
       if (TestimonialStateData.length) {
         setReviews(
           TestimonialStateData.filter(
-            (x) => x.user === localStorage.getItem("userid"),
+            (x) => x.user?._id === localStorage.getItem("userid"),
           ),
         );
       }
@@ -196,10 +196,10 @@ export default function Order() {
                           </td>
                           <td>
                             {item.orderStatus === "Delivered" ? (
-                              reviews.find((x) => x.product === p.product) ? (
+                              reviews.find((x) => x.product?._id === p.product?._id) ? (
                                 <button
                                   className="btn btn-sm btn-outline-success"
-                                  onClick={() => setUpdateOptions(p.product)}
+                                  onClick={() => setUpdateOptions(p.product?._id)}
                                 >
                                   Update Review
                                 </button>
@@ -207,7 +207,7 @@ export default function Order() {
                                 <button
                                   className="btn btn-sm btn-outline-primary"
                                   onClick={() =>
-                                    setCreateOptions(p.product, p.name)
+                                    setCreateOptions(p.product?._id, p.name)
                                   }
                                 >
                                   Write Review

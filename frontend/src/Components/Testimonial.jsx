@@ -100,11 +100,14 @@ export default function Testimonial({ pid }) {
                 ).map((x) => {
                   // const product = ProductStateData.find((p) => p._id === x.product);
                   // console.log(product);
+                  console.log(x);
                   return (
                     <SwiperSlide key={x._id}>
                       <div className="testimonial-item text-center">
                         <div className="position-relative mb-3">
-                          <Link to={`/product/${x.product}`}>{x.pName}</Link>
+                          <Link to={`/product/${x.product?._id}`}>
+                            {x.product?.name}
+                          </Link>
                           <div className="text-center">{getStar(x.star)}</div>
                           {/* <img
                             className="img-fluid rounded-circle mx-auto"
@@ -121,7 +124,7 @@ export default function Testimonial({ pid }) {
                         </div>
                         <p className="fs-4 fw-normal">{x.message}</p>
                         <hr className="w-25 mx-auto" />
-                        <h3>{x.userName}</h3>
+                        <h3>{x.user?.name}</h3>
                       </div>
                     </SwiperSlide>
                   );

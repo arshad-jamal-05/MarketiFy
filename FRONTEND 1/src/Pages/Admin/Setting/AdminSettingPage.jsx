@@ -112,7 +112,7 @@ export default function AdminSettingPage() {
     rteRefundPolicy = new window.RichTextEditor(refdivRefundPolicy.current);
 
     dispatch(getSetting());
-    console.log(SettingStateData);
+    // console.log(SettingStateData);
     if (SettingStateData.length) {
       let item = SettingStateData[0];
       setData({ ...data, ...SettingStateData[0] });

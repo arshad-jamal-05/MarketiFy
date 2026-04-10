@@ -17,7 +17,7 @@ async function createRecord(req, res) {
         html: `
 
             <tr>
-            <td style="background:#0a1f44; color:#ffffff; text-align:center; padding:22px; font-size:24px; font-weight:bold;">
+            <td style="background:#13c5dd; color:#ffffff; text-align:center; padding:22px; font-size:24px; font-weight:bold;">
             Marketify
             </td>
             </tr>
@@ -25,7 +25,7 @@ async function createRecord(req, res) {
             <tr>
             <td style="padding:40px 30px; color:#333333;">
 
-            <h2 style="color:#0a1f44; margin-top:0;">You're Subscribed 🎉</h2>
+            <h2 style="color:#13c5dd; margin-top:0;">You're Subscribed 🎉</h2>
 
             <p style="font-size:16px; line-height:24px;">
             Thank you for subscribing to our newsletter. You will now receive updates about new arrivals, exclusive deals, special discounts, and trending products directly in your inbox.
@@ -37,7 +37,7 @@ async function createRecord(req, res) {
 
             <table align="center" cellpadding="0" cellspacing="0" border="0" style="margin:30px auto;">
             <tr>
-            <td style="background:#0a1f44; padding:14px 30px; border-radius:5px;">
+            <td style="background:#13c5dd; padding:14px 30px; border-radius:5px;">
             <a href="${process.env.SITE_URL}" style="color:#ffffff; text-decoration:none; font-size:16px; font-weight:bold;">
             Start Shopping
             </a>
