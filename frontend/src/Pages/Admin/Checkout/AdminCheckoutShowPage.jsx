@@ -129,7 +129,7 @@ export default function AdminCheckoutShowPage() {
               </tr>
               <tr>
                 <th>Date</th>
-                <td>{new Date(data.date).toLocaleDateString()}</td>
+                <td>{new Date(data.createdAt).toLocaleDateString()}</td>
               </tr>
               <tr>
                 <td colSpan={2}>
@@ -164,17 +164,19 @@ export default function AdminCheckoutShowPage() {
                 </tr>
               </thead>
               <tbody>
+                {console.log(data.products)}
                 {data.products?.map((p, index) => {
                   return (
                     <tr key={index}>
+                      {console.log(p.product)}
                       <td>
                         <Link
-                          to={`${import.meta.env.VITE_APP_IMAGE_SERVER}${p.pic}`}
+                          to={`${import.meta.env.VITE_APP_IMAGE_SERVER}${p.product?.pic}`}
                           target="_blank"
                           rel="noreferrer"
                         >
                           <img
-                            src={`${import.meta.env.VITE_APP_IMAGE_SERVER}${p.pic}`}
+                            src={`${import.meta.env.VITE_APP_IMAGE_SERVER}${p.product?.pic}`}
                             height={70}
                             width="auto"
                             alt=""
@@ -186,16 +188,16 @@ export default function AdminCheckoutShowPage() {
 
                         <Link
                           className="h6"
-                          to={`/product/${p.product}`}
+                          to={`/product/${p.product?._id}`}
                           target="_blank"
                         >
-                          {p.name}
+                          {p.product?.name}
                         </Link>
                       </td>
-                      <td>{p.brand}</td>
+                      <td>{p.product?.brand?.name}</td>
                       <td>{p.color}</td>
                       <td>{p.size}</td>
-                      <td>&#8377; {p.price}</td>
+                      <td>&#8377; {p.product?.finalPrice}</td>
                       <td>{p.qty}</td>
                       <td>&#8377; {p.total}</td>
                     </tr>

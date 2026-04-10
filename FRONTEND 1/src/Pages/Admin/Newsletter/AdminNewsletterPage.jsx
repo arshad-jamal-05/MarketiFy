@@ -22,7 +22,7 @@ export default function AdminNewsletterPage() {
     }
   }
 
-  function updateRecord(id) {
+  function updateRecord(_id) {
     let index = data.findIndex((x) => x._id === _id);
     data[index].status = !data[index].status;
     dispatch(updateNewsletter({ ...data[index] }));

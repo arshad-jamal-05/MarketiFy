@@ -86,14 +86,15 @@ export default function AdminUserCreatePage() {
       } else {
         dispatch(
           createUser({
-            ...data,
-            // name: data.name,
-            // username: data.username,
-            // phone: data.phone,
-            // email: data.email,
-            // password: data.password,
-            // role: data.role,
-            // status: true,
+            // ...data,
+            name: data.name,
+            username: data.username,
+            phone: data.phone,
+            email: data.email,
+            password: data.password,
+            role: data.role,
+            status: true,
+            option: "Admin",
           }),
         );
         navigate("/admin/users");

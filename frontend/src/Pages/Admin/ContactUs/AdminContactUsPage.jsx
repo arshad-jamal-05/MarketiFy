@@ -22,7 +22,7 @@ export default function AdminContactUsPage() {
     }
   }
 
-  function updateRecord(id) {
+  function updateRecord(_id) {
     let index = data.findIndex((x) => x._id === _id);
     data[index].status = !data[index].status;
     dispatch(updateContactUs({ ...data[index] }));
@@ -79,7 +79,7 @@ export default function AdminContactUsPage() {
                       <td>{item.name}</td>
                       <td>{item.email}</td>
                       <td>{item.subject}</td>
-                      <td>{new Date(item.date).toDateString()}</td>
+                      <td>{new Date(item.createdAt).toDateString()}</td>
                       <td
                         style={{ cursor: "pointer" }}
                         title="Click Here to Change the Status"
@@ -88,7 +88,10 @@ export default function AdminContactUsPage() {
                         {item.status ? "Active" : "Inactive"}
                       </td>
                       <td>
-                        <Link to={`/admin/contactus/show/${item._id}`} className="btn btn-primary">
+                        <Link
+                          to={`/admin/contactus/show/${item._id}`}
+                          className="btn btn-primary"
+                        >
                           <i className="bi bi-eye"></i>
                         </Link>
                       </td>

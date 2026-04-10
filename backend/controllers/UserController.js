@@ -38,7 +38,10 @@ async function createRecord(req, res) {
         } else {
           try {
             let data = new User(req.body);
-            data.role = "Buyer";
+            if(!(req.body.option)){
+              data.role = "Buyer";
+            }
+            // data.role = "Buyer";
             data.password = hash;
             await data.save();
             res.send({

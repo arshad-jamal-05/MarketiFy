@@ -84,7 +84,7 @@ export default function AdminContactUsShowPage() {
               </tr>
               <tr>
                 <th>Date</th>
-                <td>{new Date(data.date).toDateString()}</td>
+                <td>{new Date(data.createdAt).toDateString()}</td>
               </tr>
               <tr>
                 <td colSpan={2}>

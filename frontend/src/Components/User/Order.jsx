@@ -137,7 +137,7 @@ export default function Order() {
                       <td>&#8377; {item.subtotal}</td>
                       <td>&#8377; {item.shipping}</td>
                       <td>&#8377; {item.total}</td>
-                      <td>{new Date(item.date).toDateString()}</td>
+                      <td>{new Date(item.createdAt).toDateString()}</td>
                     </tr>
                   </tbody>
                 </table>

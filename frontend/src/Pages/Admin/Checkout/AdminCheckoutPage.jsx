@@ -68,7 +68,7 @@ export default function AdminCheckoutPage() {
                       <td>{item.paymentMode}</td>
                       <td>{item.paymentStatus}</td>
                       <td>&#8377; {item.total}</td>
-                      <td>{new Date(item.date).toDateString()}</td>
+                      <td>{new Date(item.createdAt).toDateString()}</td>
                       <td>
                         <Link
                           to={`/admin/checkout/show/${item._id}`}
