@@ -132,6 +132,10 @@ export default function AdminCheckoutShowPage() {
                 <td>{new Date(data.createdAt).toLocaleDateString()}</td>
               </tr>
               <tr>
+                <th>Razorpay Payment ID</th>
+                <td>{data.rppid ? data.rppid : "N/A"}</td>
+              </tr>
+              <tr>
                 <td colSpan={2}>
                   {data.orderStatus !== "Delivered" ||
                   data.paymentStatus === "Pending" ? (

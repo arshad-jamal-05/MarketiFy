@@ -11,12 +11,14 @@ import FormValidator from "../Validators/FormValidator";
 let dataOptions = {
   name: "",
   email: "",
+  phone: "",
   subject: "",
   message: "",
 };
 let errorMessageOptions = {
   name: "Name is required",
   email: "Email Address is required",
+  phone: "Phone Number is required",
   subject: "Subject is required",
   message: "Message is required",
 };
@@ -269,10 +271,12 @@ export default function ContactUsPage() {
         >
           <div className="col-lg-8">
             <div className="bg-white rounded p-5 m-5 mb-0">
-              {message ? <p className="text-success text-center">{message}</p> : null}
+              {message ? (
+                <p className="text-success text-center">{message}</p>
+              ) : null}
               <form onSubmit={postData}>
                 <div className="row g-3">
-                  <div className="col-12 col-sm-6">
+                  <div className="col-12">
                     <input
                       type="text"
                       name="name"
@@ -286,7 +290,7 @@ export default function ContactUsPage() {
                       <p className="text-danger">{errorMessage.name}</p>
                     ) : null}
                   </div>
-                  <div className="col-12 col-sm-6">
+                  <div className="col-12">
                     <input
                       type="email"
                       name="email"
@@ -298,6 +302,23 @@ export default function ContactUsPage() {
                     />
                     {show && errorMessage.email ? (
                       <p className="text-danger">{errorMessage.email}</p>
+                    ) : null}
+                  </div>
+                  <div className="col-12">
+                    <input
+                      type="tel"
+                      name="phone"
+                      pattern="[6-9]{1}[0-9]{9}"
+                      maxLength={10}
+                      minLength={10}
+                      value={data.phone}
+                      onChange={getInputData}
+                      className={`form-control bg-light ${show && errorMessage.phone ? "border-danger" : "border-primary"} border-0`}
+                      placeholder="Your Phone Number"
+                      style={{ height: "55px" }}
+                    />
+                    {show && errorMessage.phone ? (
+                      <p className="text-danger">{errorMessage.phone}</p>
                     ) : null}
                   </div>
                   <div className="col-12">

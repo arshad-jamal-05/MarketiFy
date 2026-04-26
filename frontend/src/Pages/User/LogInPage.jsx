@@ -65,9 +65,6 @@ export default function LogInPage() {
           <h5 className="bg-primary text-center p-2 text-light rounded">
             LogIn To Your Account
           </h5>
-          {/* {errorMessage ? (
-            <p className="text-danger">{errorMessage}</p>
-          ) : null} */}
           <form onSubmit={postData}>
             <div className="row">
               <div className="col-12 mb-3">
@@ -101,7 +98,7 @@ export default function LogInPage() {
             </div>
           </form>
           <div className="d-flex justify-content-between">
-            <Link to="#">Forget Password?</Link>
+            <Link to="/forget-password-1">Forget Password?</Link>
             <Link to="/signup">Don't Have An Account? SignUp</Link>
           </div>
         </div>

@@ -9,7 +9,7 @@ export default function CheckoutReducer(state = [], action) {
   let index;
   switch (action.type) {
     case CREATE_CHECKOUT_RED:
-      return [...state, action.payload];
+      return [ action.payload, ...state];
 
     case GET_CHECKOUT_RED:
       return action.payload;

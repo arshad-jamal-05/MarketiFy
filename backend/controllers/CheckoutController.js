@@ -1,5 +1,46 @@
 const Checkout = require("../models/Checkout");
 const mailer = require("../mailer/index");
+const Razorpay = require("razorpay");
+
+//Payment API
+async function order(req, res) {
+  try {
+    const instance = new Razorpay({
+      key_id: process.env.RPKEYID,
+      key_secret: process.env.RPSECRETKEY,
+    });
+
+    const options = {
+      amount: req.body.amount * 100,
+      currency: "INR",
+    };
+
+    instance.orders.create(options, (error, order) => {
+      if (error) {
+        console.log(error);
+        return res.status(500).json({ message: "Something Went Wrong!" });
+      }
+      res.json({ data: order });
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Internal Server Error!" });
+    console.log(error);
+  }
+}
+
+async function verifyOrder(req, res) {
+  try {
+    var check = await Checkout.findOne({ _id: req.body.checkid });
+    check.rppid = req.body.razorpay_payment_id;
+    check.paymentStatus = "Done";
+    check.paymentMode = "Net Banking";
+    await check.save();
+    res.status(200).send({ result: "Done", message: "Payment SuccessFull" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal Server Error!" });
+  }
+}
 
 async function createRecord(req, res) {
   try {
@@ -7,7 +48,7 @@ async function createRecord(req, res) {
     await data.save();
 
     let finalData = await Checkout.findOne({ _id: data._id })
-      .populate("user", ["name", "username"])
+      .populate("user", ["name", "username", "email", "phone"])
       .populate({
         path: "products.product",
         select: "name brand finalPrice stockQuantity stock pic",
@@ -34,7 +75,7 @@ async function createRecord(req, res) {
         html: `
                 <tr>
                 <td style="background:#13c5dd; color:#ffffff; text-align:center; padding:22px; font-size:26px; font-weight:bold;">
-                Marketify
+                MarketiFy
                 </td>
                 </tr>
 
@@ -123,7 +164,7 @@ async function createRecord(req, res) {
 async function getRecord(req, res) {
   try {
     let data = await Checkout.find()
-      .populate("user", ["name", "username"])
+      .populate("user", ["name", "username", "email", "phone"])
       .populate({
         path: "products.product",
         select: "name brand finalPrice stockQuantity stock pic",
@@ -155,7 +196,7 @@ async function getRecord(req, res) {
 async function getUserRecord(req, res) {
   try {
     let data = await Checkout.find({ user: req.params.userid })
-      .populate("user", ["name", "username"])
+      .populate("user", ["name", "username", "email", "phone"])
       .populate({
         path: "products.product",
         select: "name brand finalPrice stockQuantity stock pic",
@@ -187,7 +228,7 @@ async function getUserRecord(req, res) {
 async function getSingleRecord(req, res) {
   try {
     let data = await Checkout.findOne({ _id: req.params._id })
-      .populate("user", ["name", "username"])
+      .populate("user", ["name", "username", "email", "phone"])
       .populate({
         path: "products.product",
         select: "name brand finalPrice stockQuantity stock pic",
@@ -233,7 +274,7 @@ async function updateRecord(req, res) {
       await data.save();
 
       let finalData = await Checkout.findOne({ _id: data._id })
-        .populate("user", ["name", "username"])
+        .populate("user", ["name", "username", "email", "phone"])
         .populate({
           path: "products.product",
           select: "name brand finalPrice stockQuantity stock pic",
@@ -371,4 +412,6 @@ module.exports = {
   getSingleRecord: getSingleRecord,
   updateRecord: updateRecord,
   deleteRecord: deleteRecord,
+  order: order,
+  verifyOrder: verifyOrder,
 };

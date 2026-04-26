@@ -76,7 +76,12 @@ export default function Cart({ title, selected }) {
 
       dispatch(deleteCart({ _id: x._id }));
     });
-    navigate("/order-confirmation");
+    if(selected.paymentMode === "COD"){
+      navigate("/order-confirmation");
+    } else {
+      navigate("/payment/-1");
+    }
+      
   }
 
   function calculate(data) {

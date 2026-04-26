@@ -50,6 +50,10 @@ import AdminCheckoutShowPage from "./Pages/Admin/Checkout/AdminCheckoutShowPage"
 import AdminUserPage from "./Pages/Admin/User/AdminUserPage";
 import AdminUserUpdatePage from "./Pages/Admin/User/AdminUserUpdatePage";
 import AdminUserCreatePage from "./Pages/Admin/User/AdminUserCreatePage";
+import ForgetPassword1Page from "./Pages/User/ForgetPassword1Page";
+import ForgetPassword2Page from "./Pages/User/ForgetPassword2Page";
+import ForgetPassword3Page from "./Pages/User/ForgetPassword3Page";
+import Payment from "./Pages/User/Payment";
 
 function App() {
   return (
@@ -79,16 +83,17 @@ function App() {
 
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LogInPage />} />
+          <Route path="/forget-password-1" element={<ForgetPassword1Page />} />
+          <Route path="/forget-password-2" element={<ForgetPassword2Page />} />
+          <Route path="/forget-password-3" element={<ForgetPassword3Page />} />
 
           {localStorage.getItem("login") ? (
             <>
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/cart" element={<CartPage />} />
               <Route path="/checkout" element={<CheckoutPage />} />
-              <Route
-                path="/order-confirmation"
-                element={<OrderConfirmation />}
-              />
+              <Route path="/order-confirmation" element={<OrderConfirmation />} />
+              <Route path="/payment/:_id" element={<Payment />} />
             </>
           ) : null}
 

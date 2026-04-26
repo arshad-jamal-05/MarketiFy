@@ -32,6 +32,7 @@ export default function AdminSettingPage() {
     facebook: "",
     instagram: "",
     twitter: "",
+    linkedin: "",
     privacyPolicy: "",
     termsAndConditions: "",
     returnPolicy: "",
@@ -58,17 +59,11 @@ export default function AdminSettingPage() {
       cancellationPolicy: rteCancellationPolicy.getHTMLCode(),
       refundPolicy: rteRefundPolicy.getHTMLCode(),
     };
-    // if (SettingStateData.length) {
-    //   dispatch(updateSetting(item));
-    // } else {
-    //   dispatch(createSetting(item));
-    // }
     if (data._id) {
       dispatch(updateSetting(item));
     } else {
       dispatch(createSetting(item));
     }
-    // dispatch(createSetting(item));
     toast("Record Has Been Updated Successfully");
   }
 

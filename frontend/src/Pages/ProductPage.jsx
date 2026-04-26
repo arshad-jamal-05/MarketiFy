@@ -145,7 +145,7 @@ export default function ProductPage() {
     (() => {
       dispatch(getTestimonial());
       if (TestimonialStateData.length) {
-        let reviews = TestimonialStateData.filter((x) => x.product === id);
+        let reviews = TestimonialStateData.filter((x) => x.product === _id);
         let total = 0;
         let star = [0, 0, 0, 0, 0];
         reviews.forEach((x) => {

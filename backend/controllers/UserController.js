@@ -97,7 +97,7 @@ async function createRecord(req, res) {
 
                       <tr>
                       <td style="background:#f1f5ff; text-align:center; padding:20px; font-size:13px; color:#555555;">
-                      © 2026 Marketify. All rights reserved. <br>
+                      © 2026 MarketiFy. All rights reserved. <br>
                       Thank you for choosing us ❤️
                       </td>
                       </tr>
@@ -385,7 +385,7 @@ async function forgetPassword1(req, res) {
           
           <tr>
             <td style="background-color:#f1f5ff; padding:20px; text-align:center; font-size:13px; color:#555555;">
-              © 2026 Marketify. All rights reserved.<br>
+              © 2026 MarketiFy. All rights reserved.<br>
               Need help? Contact our support team.
             </td>
           </tr>

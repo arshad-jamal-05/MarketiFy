@@ -39,6 +39,10 @@ const SettingSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    linkedin: {
+      type: String,
+      default: "",
+    },
     instagram: {
       type: String,
       default: "",

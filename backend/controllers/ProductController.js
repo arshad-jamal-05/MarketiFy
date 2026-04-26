@@ -30,7 +30,7 @@ async function createRecord(req, res) {
           html: `
                   <tr>
                   <td style="background:#13c5dd; color:#ffffff; text-align:center; padding:22px; font-size:26px; font-weight:bold;">
-                  Marketify
+                  MarketiFy
                   </td>
                   </tr>
 

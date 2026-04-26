@@ -18,7 +18,7 @@ async function createRecord(req, res) {
 
             <tr>
             <td style="background:#13c5dd; color:#ffffff; text-align:center; padding:22px; font-size:24px; font-weight:bold;">
-            Marketify
+            MarketiFy
             </td>
             </tr>
 
@@ -54,7 +54,7 @@ async function createRecord(req, res) {
 
             <tr>
             <td style="background:#f1f5ff; text-align:center; padding:20px; font-size:13px; color:#555555;">
-            © 2026 Marketify. All rights reserved. <br>
+            © 2026 MarketiFy. All rights reserved. <br>
             You're receiving this email because you subscribed to our newsletter.
             </td>
             </tr>

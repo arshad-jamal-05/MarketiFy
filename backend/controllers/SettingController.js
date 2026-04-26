@@ -15,32 +15,14 @@ async function createRecord(req, res) {
       data.facebook = req.body.facebook;
       data.instagram = req.body.instagram;
       data.twitter = req.body.twitter;
-      // if (req.files) {
-      //   try {
-      //     if (req.files.logoTop) {
-      //       fs.unlinkSync(data.logoTop);
-      //     }
-      //   } catch (error) {}
-      //   try {
-      //     if (req.files.logoBottom) {
-      //       fs.unlinkSync(data.logoBottom);
-      //     }
-      //   } catch (error) {}
-      //   data.logoTop = req.files.logoTop
-      //     ? req.files.logoTop[0]?.path
-      //     : data.logoTop;
-      //   data.logoBottom = req.files.logoBottom
-      //     ? req.files.logoBottom[0]?.path
-      //     : data.logoBottom;
-      // }
+      data.linkedin = req.body.linkedin;
+      data.privacyPolicy = req.body.privacyPolicy;
+      data.termsAndConditions = req.body.termsAndConditions;
+      data.returnPolicy = req.body.returnPolicy;
+      data.cancellationPolicy = req.body.cancellationPolicy;
+      data.refundPolicy = req.body.refundPolicy;
     } else {
-      // var data = new Setting(req.body);
-      // if (req.files) {
-      //   data.logoTop = req.files.logoTop ? req.files.logoTop[0]?.path : "";
-      //   data.logoBottom = req.files.logoBottom
-      //     ? req.files.logoBottom[0]?.path
-      //     : "";
-      // }
+      var data = new Setting(req.body);
     }
     await data.save();
     res.send({

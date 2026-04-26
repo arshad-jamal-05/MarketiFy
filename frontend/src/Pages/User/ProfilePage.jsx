@@ -65,7 +65,7 @@ export default function ProfilePage() {
                 Cart
               </Link>
               <Link
-                to="checkout"
+                to="/checkout"
                 className={`list-group-item list-group-item-action mb-1 ${option === "Checkout" ? "active" : ""}`}
                 onClick={() => setOption("Checkout")}
               >

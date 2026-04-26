@@ -17,7 +17,7 @@ export default function SettingReducer(state = [], action) {
     case UPDATE_SETTING_RED:
       index = state.findIndex((x) => x._id === action.payload._id);
       state[index] = { ...action.payload };
-      return state;
+      return [...state];
 
     case DELETE_SETTING_RED:
       return state.filter((x) => x._id !== action.payload);

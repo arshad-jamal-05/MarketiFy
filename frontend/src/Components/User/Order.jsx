@@ -133,7 +133,9 @@ export default function Order() {
                       <td>{item._id}</td>
                       <td>{item.orderStatus}</td>
                       <td>{item.paymentMode}</td>
-                      <td>{item.paymentStatus}</td>
+                      <td>{item.paymentStatus}
+                        {item.paymentStatus !== "Done" ? <Link to={`/payment/${item._id}`} className="btn btn-outline-primary mx-3">Pay Now</Link>: null}
+                      </td>
                       <td>&#8377; {item.subtotal}</td>
                       <td>&#8377; {item.shipping}</td>
                       <td>&#8377; {item.total}</td>
