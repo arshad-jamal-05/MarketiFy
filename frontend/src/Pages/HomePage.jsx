@@ -95,69 +95,7 @@ export default function HomePage() {
                     Welcome To {settingData.siteName}
                   </h5>
                   <h1 className="display-1 text-white mb-md-4">
-                    Style Built for Every Move
-                  </h1>
-                  <div className="pt-2">
-                    <Link
-                      to="/shop"
-                      className="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2"
-                    >
-                      Shop Now
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="mb-5">
-            <img src="/images/banner1.jpg" className="my-banner-image" alt="" />
-
-            <div className="container py-5">
-              <div className="row justify-content-start">
-                <div className="col-lg-8 text-center text-lg-start">
-                  <h5
-                    className="d-inline-block text-primary text-uppercase border-bottom border-5"
-                    style={{
-                      borderColor: "rgba(256, 256, 256, .3) !important",
-                    }}
-                  >
-                    Welcome To {settingData.siteName}
-                  </h5>
-                  <h1 className="display-1 text-white mb-md-4">
-                    Modern Fits for Modern Men
-                  </h1>
-                  <div className="pt-2">
-                    <Link
-                      to="/shop"
-                      className="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2"
-                    >
-                      Shop Now
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="mb-5">
-            <img src="/images/banner1.jpg" className="my-banner-image" alt="" />
-
-            <div className="container py-5">
-              <div className="row justify-content-start">
-                <div className="col-lg-8 text-center text-lg-start">
-                  <h5
-                    className="d-inline-block text-primary text-uppercase border-bottom border-5"
-                    style={{
-                      borderColor: "rgba(256, 256, 256, .3) !important",
-                    }}
-                  >
-                    Welcome To {settingData.siteName}
-                  </h5>
-                  <h1 className="display-1 text-white mb-md-4">
-                    Refined. Reliable. Remarkably You.
+                    Style That Defines the Modern Man
                   </h1>
                   <div className="pt-2">
                     <Link
@@ -205,7 +143,7 @@ export default function HomePage() {
         </SwiperSlide>
         <SwiperSlide>
           <div className="mb-5">
-            <img src="/images/banner1.jpg" className="my-banner-image" alt="" />
+            <img src="/images/banner4.jpg" className="my-banner-image" alt="" />
 
             <div className="container py-5">
               <div className="row justify-content-start">
@@ -219,7 +157,7 @@ export default function HomePage() {
                     Welcome To {settingData.siteName}
                   </h5>
                   <h1 className="display-1 text-white mb-md-4">
-                    Where Everyday Elegance Begins
+                    Little Styles for Big Smiles
                   </h1>
                   <div className="pt-2">
                     <Link
@@ -236,7 +174,11 @@ export default function HomePage() {
         </SwiperSlide>
         <SwiperSlide>
           <div className="mb-5">
-            <img src="/images/banner1.jpg" className="my-banner-image" alt="" />
+            <img
+              src="/images/banner12.jpg"
+              className="my-banner-image"
+              alt=""
+            />
 
             <div className="container py-5">
               <div className="row justify-content-start">
@@ -250,7 +192,7 @@ export default function HomePage() {
                     Welcome To {settingData.siteName}
                   </h5>
                   <h1 className="display-1 text-white mb-md-4">
-                    Fashion That Moves With You
+                    Powering Your World with Smart Innovation
                   </h1>
                   <div className="pt-2">
                     <Link
@@ -267,7 +209,11 @@ export default function HomePage() {
         </SwiperSlide>
         <SwiperSlide>
           <div className="mb-5">
-            <img src="/images/banner1.jpg" className="my-banner-image" alt="" />
+            <img
+              src="/images/banner11.jpg"
+              className="my-banner-image"
+              alt=""
+            />
 
             <div className="container py-5">
               <div className="row justify-content-start">
@@ -281,38 +227,7 @@ export default function HomePage() {
                     Welcome To {settingData.siteName}
                   </h5>
                   <h1 className="display-1 text-white mb-md-4">
-                    Made for Play, Styled for Smiles
-                  </h1>
-                  <div className="pt-2">
-                    <Link
-                      to="/shop"
-                      className="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2"
-                    >
-                      Shop Now
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="mb-5">
-            <img src="/images/banner1.jpg" className="my-banner-image" alt="" />
-
-            <div className="container py-5">
-              <div className="row justify-content-start">
-                <div className="col-lg-8 text-center text-lg-start">
-                  <h5
-                    className="d-inline-block text-primary text-uppercase border-bottom border-5"
-                    style={{
-                      borderColor: "rgba(256, 256, 256, .3) !important",
-                    }}
-                  >
-                    Welcome To {settingData.siteName}
-                  </h5>
-                  <h1 className="display-1 text-white mb-md-4">
-                    Little Styles, Big Adventures
+                    Crafting Comfort, Defining Your Space
                   </h1>
                   <div className="pt-2">
                     <Link
@@ -331,7 +246,9 @@ export default function HomePage() {
 
       <About />
       {MaincategoryStateData.filter((x) => x.status).map((item) => {
-        let data = ProductStateData.filter((x) => x.maincategory?.name === item.name);
+        let data = ProductStateData.filter(
+          (x) => x.maincategory?.name === item.name,
+        );
         if (data.length) {
           return (
             <ProductSlider

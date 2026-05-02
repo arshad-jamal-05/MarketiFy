@@ -5,12 +5,10 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 import { getTestimonial } from "../Redux/ActionCreators/TestimonialActionCreators";
-import { getProduct } from "../Redux/ActionCreators/ProductActionCreators";
 import { Link } from "react-router-dom";
 
 export default function Testimonial({ pid }) {
   let TestimonialStateData = useSelector((state) => state.TestimonialStateData);
-  // let ProductStateData = useSelector((state) => state.ProductStateData);
   let dispatch = useDispatch();
 
   let sliderOption = {
@@ -66,9 +64,7 @@ export default function Testimonial({ pid }) {
   useEffect(() => {
     (() => {
       dispatch(getTestimonial());
-      // dispatch(getProduct());
     })();
-    // }, [TestimonialStateData.length, ProductStateData.length]);
   }, [TestimonialStateData.length]);
 
   return (
@@ -85,44 +81,39 @@ export default function Testimonial({ pid }) {
             <h1 className="display-4">Our Happy Customers</h1>
           </div>
         ) : null}
-        {/* <div className="text-center mx-auto mb-5" style={{ maxWidth: "500px" }}>
-          <h5 className="d-inline-block text-primary text-uppercase border-bottom border-5">
-            Testimonial
-          </h5>
-          <h1 className="display-4">Our Happy Customers</h1>
-        </div> */}
         <div className="row justify-content-center">
-          <div className="col-lg-8">
+          <div className="col-lg-12">
             <Swiper {...sliderOption}>
               <div className="testimonial-carousel">
                 {TestimonialStateData.filter((x) =>
-                  pid ? x.product === pid : x.star >= 4,
+                  pid ? x.product?._id === pid : x.star >= 4,
                 ).map((x) => {
-                  // const product = ProductStateData.find((p) => p._id === x.product);
-                  // console.log(product);
-                  console.log(x);
                   return (
                     <SwiperSlide key={x._id}>
-                      <div className="testimonial-item text-center">
+                      <div className="testimonial-item text-center card p-4">
                         <div className="position-relative mb-3">
-                          <Link to={`/product/${x.product?._id}`}>
+                          <Link to={`/product/${x.product?._id}`} className="fs-5">
                             {x.product?.name}
                           </Link>
-                          <div className="text-center">{getStar(x.star)}</div>
-                          {/* <img
+                          <div className="text-center fs-6 mb-3">{getStar(x.star)}</div>
+                          <img
                             className="img-fluid rounded-circle mx-auto"
-                            src={`${import.meta.env.VITE_APP_IMAGE_SERVER}/${product?.pic[0]}`}
-                            style={{ objectFit: "cover" }}
+                            src={`${import.meta.env.VITE_APP_IMAGE_SERVER}${x.product?.pic?.[0]?.replaceAll("\\", "/")}`}
+                            style={{
+                              objectFit: "cover",
+                              width: "100px",
+                              height: "100px",
+                            }}
                             alt=""
-                          /> */}
-                          {/* <div
+                          />
+                          <div
                             className="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle"
-                            style={{ width: "60px", height: "60px" }}
+                            style={{ width: "50px", height: "50px" }}
                           >
                             <i className="fa fa-quote-left fa-2x text-primary"></i>
-                          </div> */}
+                          </div>
                         </div>
-                        <p className="fs-4 fw-normal">{x.message}</p>
+                        <p className="mt-3 fs-6 fw-normal text-justify">{x.message}</p>
                         <hr className="w-25 mx-auto" />
                         <h3>{x.user?.name}</h3>
                       </div>

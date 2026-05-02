@@ -56,24 +56,15 @@ export default function ProductPage() {
   function addToCart() {
     let item = CartStateData.find(
       (x) => x.user?._id === localStorage.getItem("userid") && x.product === _id,
-      // (x) => x.user?._id === localStorage.getItem("userid") && x.product?._id === product._id,
     );
     if (!item) {
       item = {
         user: localStorage.getItem("userid"),
         product: _id,
-        // product: product._id,
         color: selected.color,
         size: selected.size,
         qty: selected.qty,
         total: selected.qty * data.finalPrice,
-
-        // Remove following lines in case of real backend
-        // name: data.name,
-        // brand: data.brand,
-        // stockQuantity: data.stockQuantity,
-        // price: data.finalPrice,
-        // pic: data.pic[0],
       };
       dispatch(createCart(item));
     }
@@ -83,22 +74,11 @@ export default function ProductPage() {
   function addToWishlist() {
     let item = WishlistStateData.find(
       (x) => x.user?._id === localStorage.getItem("userid") && x.product === _id,
-      // (x) => x.user?._id === localStorage.getItem("userid") && x.product?._id === product._id,
     );
     if (!item) {
       item = {
         user: localStorage.getItem("userid"),
         product: _id,
-        // product: product._id,
-
-        // Remove following lines in case of real backend
-        // name: data.name,
-        // brand: data.brand,
-        // color: selected.color,
-        // size: selected.size,
-        // stockQuantity: data.stockQuantity,
-        // price: data.finalPrice,
-        // pic: data.pic[0],
       };
       dispatch(createWishlist(item));
     }
@@ -145,7 +125,7 @@ export default function ProductPage() {
     (() => {
       dispatch(getTestimonial());
       if (TestimonialStateData.length) {
-        let reviews = TestimonialStateData.filter((x) => x.product === _id);
+        let reviews = TestimonialStateData.filter((x) => x.product?._id === _id);
         let total = 0;
         let star = [0, 0, 0, 0, 0];
         reviews.forEach((x) => {

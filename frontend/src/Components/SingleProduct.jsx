@@ -13,6 +13,16 @@ export default function SingleProduct({ item }) {
         src={`${import.meta.env.VITE_APP_IMAGE_SERVER}${item.pic[0]}`}
         style={{ height: 300 }}
       />
+      {/* <div
+        className="overflow-hidden"
+        style={{ width: "100%", height: "300px" }}
+      >
+        <img
+          src={`${import.meta.env.VITE_APP_IMAGE_SERVER}${item.pic[0]}`}
+          // className="w-100 h-100"
+          style={{ height:300, objectFit: "contain" }}
+        />
+      </div> */}
       <div className="p-4 text-center">
         <Link className="h3 d-block mb-3" to={`/product/${item._id}`}>
           {item.name}
@@ -40,7 +50,9 @@ export default function SingleProduct({ item }) {
           </small>
         </div>
       </div>
-      <Link to={`/product/${item._id}`} className="btn btn-primary w-100">Add To Cart</Link>
+      <Link to={`/product/${item._id}`} className="btn btn-primary w-100">
+        Add To Cart
+      </Link>
     </div>
   );
 }

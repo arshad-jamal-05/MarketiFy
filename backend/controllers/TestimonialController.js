@@ -28,7 +28,7 @@ async function getRecord(req, res) {
     let data = await Testimonial.find()
       .sort({ _id: -1 })
       .populate("user", ["name"])
-      .populate("product", ["name"]);
+      .populate("product", ["name", "pic"]);
     res.send({
       result: "Done",
       count: data.length,
@@ -46,7 +46,7 @@ async function getSingleRecord(req, res) {
   try {
     let data = await Testimonial.findOne({ _id: req.params._id })
       .populate("user", ["name"])
-      .populate("product", ["name"]);
+      .populate("product", ["name", "pic"]);
     if (data) {
       res.send({
         result: "Done",
@@ -76,7 +76,7 @@ async function updateRecord(req, res) {
 
       let finalData = await Testimonial.findOne({ _id: data._id })
         .populate("user", ["name"])
-        .populate("product", ["name"]);
+        .populate("product", ["name", "pic"]);
 
       res.send({
         result: "Done",
