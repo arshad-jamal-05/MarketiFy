@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 require("dotenv").config();
 
 require("./db-connect");
@@ -34,6 +35,12 @@ app.use(
 app.use(express.json());
 app.use("/public", express.static("./public"));
 app.use("/api", Router);
+
+app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+app.get((req, res) => {
+  res.sendFile(path.join(__dirname, "/frontend/dist/index.html"));
+});
 
 let port = process.env.PORT || 8000;
 
