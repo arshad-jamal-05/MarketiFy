@@ -86,7 +86,6 @@ export default function AdminUserCreatePage() {
       } else {
         dispatch(
           createUser({
-            // ...data,
             name: data.name,
             username: data.username,
             phone: data.phone,

@@ -137,7 +137,6 @@ export default function ShopPage() {
       dispatch(getProduct());
       if (ProductStateData.length) {
         applyFilter(filter);
-        // setData(ProductStateData);
       }
     })();
   }, [ProductStateData.length]);

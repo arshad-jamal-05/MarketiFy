@@ -33,6 +33,7 @@ export default function ContactUsPage() {
     email: import.meta.env.VITE_APP_EMAIL,
     phone: import.meta.env.VITE_APP_PHONE,
     map1: import.meta.env.VITE_APP_MAP_URL1,
+    map2: import.meta.env.VITE_APP_MAP_URL2,
     whatsapp: import.meta.env.VITE_APP_WHATSAPP,
     facebook: import.meta.env.VITE_APP_FACEBOOK,
     twitter: import.meta.env.VITE_APP_TWITTER,
@@ -45,7 +46,6 @@ export default function ContactUsPage() {
 
   function getInputData(e) {
     let { name, value } = e.target;
-    // setData({ ...data, [name]: FormValidator(e) });
     setErrorMessage({ ...errorMessage, [name]: FormValidator(e) });
     setData({ ...data, [name]: value });
   }
@@ -76,6 +76,7 @@ export default function ContactUsPage() {
           email: item.email ? item.email : settingData.email,
           phone: item.phone ? item.phone : settingData.phone,
           map1: item.map1 ? item.map1 : settingData.map1,
+          map2: item.map2 ? item.map2 : settingData.map2,
           whatsapp: item.whatsapp ? item.whatsapp : settingData.whatsapp,
           facebook: item.facebook ? item.facebook : settingData.facebook,
           twitter: item.twitter ? item.twitter : settingData.twitter,
@@ -260,7 +261,7 @@ export default function ContactUsPage() {
             <div className="position-relative h-100">
               <iframe
                 className="position-relative w-100 h-100"
-                src={settingData.map1}
+                src={settingData.map2}
               ></iframe>
             </div>
           </div>

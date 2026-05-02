@@ -19,7 +19,6 @@ Router.use("/maincategory", MaincategoryRouter);
 Router.use("/subcategory", SubcategoryRouter);
 Router.use("/brand", BrandRouter);
 Router.use("/product", ProductRouter);
-// Router.use("/features", FeaturesRouter);
 Router.use("/feature", FeaturesRouter);
 Router.use("/faq", FAQRouter);
 Router.use("/setting", SettingRouter);

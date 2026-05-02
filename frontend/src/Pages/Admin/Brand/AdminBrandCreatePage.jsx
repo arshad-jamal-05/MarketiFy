@@ -30,7 +30,6 @@ export default function AdminBrandCreatePage() {
 
   function getInputData(e) {
     let name = e.target.name;
-    // let value = name === "pic" ? "brand/" + e.target.files[0].name : e.target.value;
     let value = name === "pic" ? e.target.files[0] : e.target.value;
 
     setData({ ...data, [name]: name === "status" ? (value === "1" ? true : false) : value });
@@ -49,7 +48,6 @@ export default function AdminBrandCreatePage() {
         setErrorMessage({ ...errorMessage, name: "Brand With This Name Already Exists" });
         setShow(true);
       } else {
-        // dispatch(createBrand({ ...data }));
         let formData = new FormData();
         formData.append("name", data.name);
         formData.append("pic", data.pic);

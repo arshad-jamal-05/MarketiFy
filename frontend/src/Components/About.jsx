@@ -1,36 +1,6 @@
 import React, { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
-// import { useDispatch, useSelector } from "react-redux";
-// import { getSetting } from "../Redux/ActionCreators/SettingActionCreators";
 
 export default function About() {
-  // let [settingData, setSettingData] = useState({
-  //   siteName: import.meta.env.VITE_APP_SITE_NAME,
-  //   facebook: import.meta.env.VITE_APP_FACEBOOK,
-  //   twitter: import.meta.env.VITE_APP_TWITTER,
-  //   linkedin: import.meta.env.VITE_APP_LINKEDIN,
-  //   instagram: import.meta.env.VITE_APP_INSTAGRAM,
-  // });
-
-  // let SettingStateData = useSelector((state) => state.SettingStateData);
-  // let dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   (() => {
-  //     dispatch(getSetting());
-  //     if (SettingStateData.length) {
-  //       let item = SettingStateData[0];
-  //       setSettingData({
-  //         siteName: item.siteName ? item.siteName : settingData.siteName,
-  //         facebook: item.facebook ? item.facebook : settingData.facebook,
-  //         twitter: item.twitter ? item.twitter : settingData.twitter,
-  //         linkedin: item.linkedin ? item.linkedin : settingData.linkedin,
-  //         instagram: item.instagram ? item.instagram : settingData.instagram,
-  //       });
-  //     }
-  //   })();
-  // }, [SettingStateData.length]);
-
   return (
     <>
       <div className="container-fluid py-5">

@@ -29,10 +29,6 @@ export default function AdminMaincategoryCreatePage() {
 
   function getInputData(e) {
     let name = e.target.name;
-    // let value =
-    //   name === "pic"
-    //     ? "maincategory/" + e.target.files[0].name
-    //     : e.target.value;
     let value = name === "pic" ? e.target.files[0] : e.target.value;
 
     setData({
@@ -62,7 +58,6 @@ export default function AdminMaincategoryCreatePage() {
         });
         setShow(true);
       } else {
-        // dispatch(createMaincategory({ ...data }));
         let formData = new FormData();
         formData.append("name", data.name);
         formData.append("pic", data.pic);

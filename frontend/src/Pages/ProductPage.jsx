@@ -148,12 +148,7 @@ export default function ProductPage() {
             <Swiper {...sliderOption}>
               {data?.pic?.map((item, index) => {
                 return (
-                  // <SwiperSlide>
                   <SwiperSlide key={index}>
-                    {/* <img
-                      src={`${import.meta.env.VITE_APP_IMAGE_SERVER}${item}`}
-                      className="w-100"
-                    /> */}
                     <div
                       className="overflow-hidden"
                       style={{ width: "100%", height: "600px" }}

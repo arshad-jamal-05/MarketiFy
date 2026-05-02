@@ -78,13 +78,6 @@ export default function AdminUserUpdatePage() {
         dispatch(
           updateUser({
             ...data,
-            // name: data.name,
-            // username: data.username,
-            // phone: data.phone,
-            // email: data.email,
-            // password: data.password,
-            // role: data.role,
-            // status: true,
           }),
         );
         navigate("/admin/users");

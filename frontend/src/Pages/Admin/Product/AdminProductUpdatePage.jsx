@@ -97,8 +97,6 @@ export default function AdminProductUpdatePage() {
       var picError = ImageValidator(e);
     }
     if(name === "pic" && picError === ""){
-      // var value = data.pic.concat(Array.from(e.target.files).map((x) => "product/" + x.name));
-      // let value = e.target.files[0];  // in case of real backend
       let value = name === "pic" ? e.target.files : e.target.value;
       setData({ ...data, pic: value });
     } else if (name !== "pic") {
@@ -146,31 +144,9 @@ export default function AdminProductUpdatePage() {
       let fp = bp - (bp * dis) / 100;
       let sc = parseInt(data.stockQuantity);
 
-      // dispatch(
-      //   updateProduct({
-      //     ...data,
-      //     maincategory: data.maincategory
-      //       ? data.maincategory
-      //       : MaincategoryStateData[0].name,
-      //     subcategory: data.subcategory
-      //       ? data.subcategory
-      //       : SubcategoryStateData[0].name,
-      //     brand: data.brand ? data.brand : BrandStateData[0].name,
-      //     basePrice: bp,
-      //     discount: dis,
-      //     finalPrice: fp,
-      //     stockQuantity: sc,
-      //     description: rte.getHTMLCode(),
-      //   }),
-      // );
       let formData = new FormData();
       formData.append("_id", data._id);
       formData.append("name", data.name);
-      // formData.append("maincategory", data.maincategory ? data.maincategory : MaincategoryStateData[0].name);
-      // formData.append("subcategory", data.subcategory ? data.subcategory : SubcategoryStateData[0].name);
-      // formData.append("brand", data.brand ? data.brand : BrandStateData[0].name);
-      // formData.append("color", data.color);
-      // formData.append("size", data.size);
       formData.append(
         "maincategory",
         data.maincategory._id ?? data.maincategory,
@@ -179,21 +155,12 @@ export default function AdminProductUpdatePage() {
       formData.append("brand", data.brand._id ?? data.brand);
       data.color.map((item) => formData.append("color", item));
       data.size.map((item) => formData.append("size", item));
-      // formData.append("basePrice", data.bp);
-      // formData.append("discount", data.dis);
-      // formData.append("finalPrice", data.fp);
-      // formData.append("stock", data.stock);
-      // formData.append("stockQuantity", data.sc);
       formData.append("basePrice", data.basePrice);
       formData.append("discount", data.discount);
       formData.append("finalPrice", data.finalPrice);
       formData.append("stock", data.stock);
       formData.append("stockQuantity", data.stockQuantity);
       formData.append("description", rte.getHTMLCode());
-      // data.pic.forEach((item) => {
-      //   formData.append("pic", item);
-      // });
-      // formData.append("pic", data.pic);
       Array.from(data.pic).map((item) => formData.append("pic", item));
       oldPics.map((item) => formData.append("oldPics", item));
       formData.append("status", data.status);
@@ -412,7 +379,6 @@ export default function AdminProductUpdatePage() {
                   type="number"
                   name="stockQuantity"
                   value={data.stockQuantity}
-                  // step={20}
                   step={10}
                   onChange={getInputData}
                   placeholder="Product Stock Quantity"

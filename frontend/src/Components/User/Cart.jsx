@@ -38,13 +38,9 @@ export default function Cart({ title, selected }) {
     ) {
       return;
     } else if (option === "Dec") {
-      // item["qty"] = item["qty"] - 1;
-      // item["total"] = item["total"] - item["price"];
       item.qty = item.qty - 1;
       item.total = item.total - item.product?.finalPrice;
     } else {
-      // item["qty"] = item["qty"] + 1;
-      // item["total"] = item["total"] + item["price"];
       item.qty = item.qty + 1;
       item.total = item.total + item.product?.finalPrice;
     }
@@ -72,8 +68,6 @@ export default function Cart({ title, selected }) {
       product.stockQuantity = product.stockQuantity - x.qty;
       product.stock = product.stockQuantity === 0 ? false : true;
       dispatch(updateProduct({ ...product, option: "Checkout" }));
-      // console.log(product);
-
       dispatch(deleteCart({ _id: x._id }));
     });
     if(selected.paymentMode === "COD"){
@@ -101,21 +95,7 @@ export default function Cart({ title, selected }) {
     (() => {
       dispatch(getCart());
       if (CartStateData.length) {
-        // let data = CartStateData.filter(
-        //   (x) => x.user === localStorage.getItem("userid"),
-        // );
         let data = CartStateData;
-        // console.log(data);
-        // data.forEach((x, index) => {
-        //   let product = ProductStateData.find((p) => p._id === x.product?._id);
-          // console.log(product);
-
-          // data[index].stockQuantity = product.stockQuantity;
-          // if(!product.stock){
-          //   data[index].qty = 0;
-          //   data[index].total = 0;
-          // }
-        // });
         setData(data);
         calculate(data);
       }
@@ -144,7 +124,6 @@ export default function Cart({ title, selected }) {
                   <th>Price</th>
                   <th>Quantity</th>
                   <th>Total</th>
-                  {/* {title === "Cart" ? <th></th> : <th>Quantity</th>} */}
                   {title === "Cart" ? <th></th> : null}
                 </tr>
               </thead>

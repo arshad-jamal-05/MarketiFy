@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useRazorpay } from "react-razorpay";
-
 import { getCheckout } from "../../Redux/ActionCreators/CheckoutActionCreators";
-// import Breadcrum from "../../Components/Breadcrum";
 
 export default function Payment() {
   var [checkout, setcheckout] = useState({});
@@ -99,8 +97,6 @@ export default function Payment() {
 
   return (
     <>
-      {/* <Breadcrum title="Online Payment" /> */}
-
       <section className="login_box_area section_gap about">
         <div className="container my-5">
           <h4 className="text-center border border-dark p-2">

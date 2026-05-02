@@ -1,5 +1,4 @@
 const Setting = require("../models/Setting");
-// const fs = require("fs");
 
 async function createRecord(req, res) {
   try {

@@ -267,12 +267,6 @@ async function login(req, res) {
       $or: [{ username: req.body.username }, { email: req.body.username }],
     });
     if (data && (await bcrypt.compare(req.body.password, data.password))) {
-      // let key =
-      //   data.role === "Buyer"
-      //     ? process.env.JWT_SECRET_KEY_BUYER
-      //     : data.role === "Admin"
-      //       ? process.env.JWT_SECRET_KEY_ADMIN
-      //       : process.env.JWT_SECRET_KEY_SUPER_ADMIN;
       jwt.sign(
         { data },
         process.env.JWT_SECRET_KEY_PRIVATE,

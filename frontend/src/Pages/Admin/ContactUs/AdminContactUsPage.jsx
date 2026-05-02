@@ -72,7 +72,6 @@ export default function AdminContactUsPage() {
               </thead>
               <tbody>
                 {data.map((item) => {
-                  // console.log(item);
                   return (
                     <tr key={item._id}>
                       <td>{item._id}</td>

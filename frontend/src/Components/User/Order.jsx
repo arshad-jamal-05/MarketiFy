@@ -25,7 +25,6 @@ export default function Order() {
   let TestimonialStateData = useSelector((state) => state.TestimonialStateData);
   let dispatch = useDispatch();
 
-  // function setCreateOptions(pid) { // use this line in case of real backend
   function setCreateOptions(pid, name) {
     setShowModal(true);
     setOption("Create");
@@ -33,8 +32,8 @@ export default function Order() {
       ...dataOption,
       user: localStorage.getItem("userid"),
       product: pid,
-      userName: localStorage.getItem("name"), // remove this line in case of real backend
-      pName: name, // remove this line in case of real backend
+      userName: localStorage.getItem("name"), 
+      pName: name, 
     });
   }
 
@@ -49,9 +48,8 @@ export default function Order() {
   }
 
   function getInputData(e) {
-    let name = e.target.name; // remove this line in case of real backend
-    let value = name === "star" ? parseInt(e.target.value) : e.target.value; // remove this line in case of real backend
-    // let { name, value } = e.target;   // use this line in case of real backend
+    let name = e.target.name; 
+    let value = name === "star" ? parseInt(e.target.value) : e.target.value;
     setData({ ...data, [name]: value });
   }
 
@@ -78,11 +76,6 @@ export default function Order() {
     (() => {
       dispatch(getCheckout());
       if (CheckoutStateData.length) {
-        // let userOrders = CheckoutStateData.filter(
-        //   (x) => x.user === localStorage.getItem("userid"),
-        // );
-        // setOrders(userOrders);
-        // setOrders(CheckoutStateData);
         setOrders(
           CheckoutStateData.filter(
             (x) => x.user?._id === localStorage.getItem("userid"),

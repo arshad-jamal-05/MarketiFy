@@ -16,7 +16,6 @@ export default function Profile({ option }) {
         },
       );
       response = await response.json();
-      // setData({ ...response });
       if (response.result === "Done") {
         setData(response.data);
       } else {

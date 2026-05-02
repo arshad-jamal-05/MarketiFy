@@ -30,10 +30,6 @@ export default function AdminSubcategoryCreatePage() {
 
   function getInputData(e) {
     let name = e.target.name;
-    // let value =
-    //   name === "pic"
-    //     ? "subcategory/" + e.target.files[0].name
-    //     : e.target.value;
     let value = name === "pic" ? e.target.files[0] : e.target.value;
 
     setData({
@@ -63,7 +59,6 @@ export default function AdminSubcategoryCreatePage() {
         });
         setShow(true);
       } else {
-        // dispatch(createSubcategory({ ...data }));
         let formData = new FormData();
         formData.append("name", data.name);
         formData.append("pic", data.pic);

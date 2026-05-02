@@ -32,8 +32,6 @@ export default function AdminBrandUpdatePage() {
 
   function getInputData(e) {
     let name = e.target.name;
-    // let value =
-    //   name === "pic" ? "brand/" + e.target.files[0].name : e.target.value;
     let value = name === "pic" ? e.target.files[0] : e.target.value;
 
     setData({
@@ -64,7 +62,6 @@ export default function AdminBrandUpdatePage() {
         });
         setShow(true);
       } else {
-        // dispatch(updateBrand({ ...data }));
         let formData = new FormData();
         formData.append("_id", data._id);
         formData.append("name", data.name);

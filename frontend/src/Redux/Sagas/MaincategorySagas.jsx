@@ -20,8 +20,7 @@ import {
 
 function* createSaga(action) {
   // worker saga
-  // let response = yield createRecord("maincategory", action.payload); // if data has no file field
-  let response = yield createMultipartRecord("maincategory", action.payload); // if data has at least 1 file field
+  let response = yield createMultipartRecord("maincategory", action.payload);
   yield put({ type: CREATE_MAINCATEGORY_RED, payload: response });
 }
 
@@ -33,13 +32,7 @@ function* getSaga(action) {
 
 function* updateSaga(action) {
   // worker saga
-  // yield updateRecord("maincategory", action.payload); // if data has no file field
-  // yield updateMultipartRecord("maincategory", action.payload);  // if data has at least 1 file field
-  // yield put({ type: UPDATE_MAINCATEGORY_RED, payload: action.payload });
-
-  // in case of real backend
-  // let response = yield updateRecord("maincategory", action.payload); // if data has no file field
-  let response = yield updateMultipartRecord("maincategory", action.payload);  // if data has at least 1 file field
+  let response = yield updateMultipartRecord("maincategory", action.payload); 
   yield put({ type: UPDATE_MAINCATEGORY_RED, payload: response });
 }
 

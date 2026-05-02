@@ -57,7 +57,6 @@ export default function AdminProductCreatePage() {
     size: [],
     basePrice: 0,
     discount: 0,
-    // finalPrice: 0,
     stock: true,
     stockQuantity: 0,
     pic: [],
@@ -70,8 +69,6 @@ export default function AdminProductCreatePage() {
     size: "Please Select Atleast One Size",
     basePrice: "Product Base Price is required",
     discount: "Product Discount is required",
-    // finalPrice: "Product Final Price is required",
-    // stock: "Product Stock is required",
     stockQuantity: "Product Stock Quantity is required",
     pic: "Product Pic is required",
   });
@@ -90,12 +87,7 @@ export default function AdminProductCreatePage() {
 
   function getInputData(e) {
     let name = e.target.name;
-    // let value =
-    //   name === "pic"
-    //     ? Array.from(e.target.files).map((x) => "product/" + x.name)
-    //     : e.target.value;
-    // let value = name === "pic" ? e.target.files[0] : e.target.value;  // in case of real backend
-    let value = name === "pic" ? e.target.files : e.target.value;  // in case of real backend
+    let value = name === "pic" ? e.target.files : e.target.value;
 
     setData({
       ...data,
@@ -141,30 +133,11 @@ export default function AdminProductCreatePage() {
       let fp = bp - (bp * dis) / 100;
       let sc = parseInt(data.stockQuantity);
 
-      // dispatch(
-      //   createProduct({
-      //     ...data,
-      //     maincategory: data.maincategory
-      //       ? data.maincategory
-      //       : MaincategoryStateData[0].name,
-      //     subcategory: data.subcategory
-      //       ? data.subcategory
-      //       : SubcategoryStateData[0].name,
-      //     brand: data.brand ? data.brand : BrandStateData[0].name,
-      //     basePrice: bp,
-      //     discount: dis,
-      //     finalPrice: fp,
-      //     stockQuantity: sc,
-      //     description: rte.getHTMLCode(),
-      //   }),
-      // );
       let formData = new FormData();
       formData.append("name", data.name);
       formData.append("maincategory", data.maincategory ? data.maincategory : MaincategoryStateData[0]._id);
       formData.append("subcategory", data.subcategory ? data.subcategory : SubcategoryStateData[0]._id);
       formData.append("brand", data.brand ? data.brand : BrandStateData[0]._id);
-      // formData.append("color", data.color);
-      // formData.append("size", data.size);
       data.color.map((item) => formData.append("color", item));
       data.size.map((item) => formData.append("size", item));
       formData.append("basePrice", bp);
@@ -173,10 +146,6 @@ export default function AdminProductCreatePage() {
       formData.append("stock", data.stock);
       formData.append("stockQuantity",sc);
       formData.append("description", rte.getHTMLCode());
-      // data.pic.forEach((item) => {
-      //   formData.append("pic", item);
-      // });
-      // formData.append("pic", data.pic);
       Array.from(data.pic).map((item) => formData.append("pic", item));
       formData.append("status", data.status);
       dispatch(createProduct(formData));
@@ -374,7 +343,6 @@ export default function AdminProductCreatePage() {
                 <input
                   type="number"
                   name="stockQuantity"
-                  // step={20}
                   onChange={getInputData}
                   placeholder="Product Stock Quantity"
                   className={`form-control ${show && errorMessage.stockQuantity ? "border-danger" : "border-primary"}`}

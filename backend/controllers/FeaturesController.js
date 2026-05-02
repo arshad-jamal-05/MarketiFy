@@ -9,8 +9,6 @@ async function createRecord(req, res) {
       data: data,
     });
   } catch (error) {
-    // console.log(error);
-
     let err = [];
     if (error?.keyValue) {
       err = Object.keys(error?.keyValue).map((key) => [

@@ -101,41 +101,6 @@ async function createRecord(req, res) {
       Object.keys(error?.errors).map((key) => [key, error.errors[key].message]),
     );
 
-    // let errorMessage = {};
-    // error?.errors?.name
-    //   ? (errorMessage.name = error?.errors?.name?.message)
-    //   : "";
-    // error?.errors?.maincategory
-    //   ? (errorMessage.maincategory = error?.errors?.maincategory?.message)
-    //   : "";
-    // error?.errors?.subcategory
-    //   ? (errorMessage.subcategory = error?.errors?.subcategory?.message)
-    //   : "";
-    // error?.errors?.brand
-    //   ? (errorMessage.brand = error?.errors?.brand?.message)
-    //   : "";
-    // error?.errors?.color
-    //   ? (errorMessage.color = error?.errors?.color?.message)
-    //   : "";
-    // error?.errors?.size
-    //   ? (errorMessage.size = error?.errors?.size?.message)
-    //   : "";
-    // error?.errors?.basePrice
-    //   ? (errorMessage.basePrice = error?.errors?.basePrice?.message)
-    //   : "";
-    // error?.errors?.discount
-    //   ? (errorMessage.discount = error?.errors?.discount?.message)
-    //   : "";
-    // error?.errors?.finalPrice
-    //   ? (errorMessage.finalPrice = error?.errors?.finalPrice?.message)
-    //   : "";
-    // error?.errors?.stockQuantity
-    //   ? (errorMessage.stockQuantity = error?.errors?.stockQuantity?.message)
-    //   : "";
-    // error?.errors?.description
-    //   ? (errorMessage.description = error?.errors?.description?.message)
-    //   : "";
-    // error?.errors?.pic ? (errorMessage.pic = error?.errors?.pic?.message) : "";
     res.status(Object.values(errorMessage).length ? 400 : 500).send({
       result: "Fail",
       reason: Object.values(errorMessage).length
@@ -273,21 +238,6 @@ async function updateRecord(req, res) {
         ? errorMessage
         : "Internal Server Error",
     });
-
-    // let errorMessage = {};
-    // error?.keyValue && error?.keyValue?.name
-    //   ? (errorMessage.name = "Product Name is Already Exist")
-    //   : "";
-    // error?.errors?.name
-    //   ? (errorMessage.name = error?.errors?.name?.message)
-    // : "";
-    // error?.errors?.pic ? (errorMessage.pic = error?.errors?.pic?.message) : "";
-    // res.status(Object.values(errorMessage).length ? 400 : 500).send({
-    //   result: "Fail",
-    //   reason: Object.values(errorMessage).length
-    //     ? errorMessage
-    //     : "Internal Server Error",
-    // });
   }
 }
 

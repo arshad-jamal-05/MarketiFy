@@ -21,8 +21,7 @@ import { act } from "react";
 
 function* createSaga(action) {
   // worker saga
-  // let response = yield createRecord("product", action.payload); // if data has no file field
-  let response = yield createMultipartRecord("product", action.payload); // if data has at least 1 file field
+  let response = yield createMultipartRecord("product", action.payload);
   yield put({ type: CREATE_PRODUCT_RED, payload: response });
 }
 
@@ -34,17 +33,11 @@ function* getSaga(action) {
 
 function* updateSaga(action) {
   // worker saga
-  // yield updateRecord("product", action.payload); // if data has no file field
-  // yield updateMultipartRecord("product", action.payload);  // if data has at least 1 file field
-  // yield put({ type: UPDATE_PRODUCT_RED, payload: action.payload });
-
-  // in case of real backend
-  // let response = yield updateRecord("product", action.payload); // if data has no file field
   if(action.payload?.option){
-    let response = yield updateMultipartRecord("product", action.payload); // if data has at least 1 file field
+    let response = yield updateMultipartRecord("product", action.payload);
     yield put({ type: UPDATE_PRODUCT_RED, payload: action.payload });
   } else {
-    let response = yield updateMultipartRecord("product", action.payload); // if data has at least 1 file field
+    let response = yield updateMultipartRecord("product", action.payload);
     yield put({ type: UPDATE_PRODUCT_RED, payload: response });
   }
 }

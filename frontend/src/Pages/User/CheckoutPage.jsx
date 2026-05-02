@@ -21,15 +21,10 @@ export default function CheckoutPage() {
         },
       );
       response = await response.json();
-      // if (response.address) {
-      //   setAddress(response.address);
-      //   setSelected({ ...selected, deliveryAddress: response.address[0] });
-      // }
       if (response.data?.address) {
         setAddress(response.data.address);
         setSelected({ ...selected, deliveryAddress: response.data?.address[0] });
       }
-      // console.log(response);
     })();
   }, []);
 
@@ -42,7 +37,6 @@ export default function CheckoutPage() {
               <h5 className="bg-primary text-center text-light p-2">
                 Delievery Address
               </h5>
-              {/* {console.log(address)} */}
               {address?.map((item, index) => {
                 return (
                   <div

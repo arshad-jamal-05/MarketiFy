@@ -68,7 +68,6 @@ export default function UpdateProfile({ setOption }) {
         },
       );
       response = await response.json();
-      // setData({ ...data, ...response });
       if (response.result === "Done") {
         setData(response.data);
       } else {

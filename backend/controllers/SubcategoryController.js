@@ -13,8 +13,6 @@ async function createRecord(req, res) {
       data: data,
     });
   } catch (error) {
-    // console.log(error);
-
     if (req.file) {
       try {
         fs.unlinkSync(req.file.path);

@@ -13,8 +13,6 @@ async function createRecord(req, res) {
       data: data,
     });
   } catch (error) {
-    // console.log(error);
-
     if (req.file) {
       try {
         fs.unlinkSync(req.file.path);
@@ -35,16 +33,9 @@ async function createRecord(req, res) {
         error.errors[key].message,
       ]);
     }
+    
     let errorMessage = Object.fromEntries(err);
 
-    // let errorMessage = {};
-    // error?.keyValue && error?.keyValue?.name
-    //   ? (errorMessage.name = "Maincategory Name is Already Exist")
-    //   : "";
-    // error?.errors?.name
-    //   ? (errorMessage.name = error?.errors?.name?.message)
-    //   : "";
-    // error?.errors?.pic ? (errorMessage.pic = error?.errors?.pic?.message) : "";
     res.status(Object.values(errorMessage).length ? 400 : 500).send({
       result: "Fail",
       reason: Object.values(errorMessage).length
