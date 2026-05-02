@@ -36,10 +36,12 @@ app.use(express.json());
 app.use("/public", express.static("./public"));
 app.use("/api", Router);
 
-app.use(express.static(path.join(__dirname, "/frontend/dist")));
+// app.use(express.static(path.join(__dirname, "/frontend/dist")));
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-app.get((req, res) => {
-  res.sendFile(path.join(__dirname, "/frontend/dist/index.html"));
+app.get("/",(req, res) => {
+  // res.sendFile(path.join(__dirname, "/frontend/dist/index.html"));
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
 
 let port = process.env.PORT || 8000;
